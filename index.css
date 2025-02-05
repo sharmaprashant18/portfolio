@@ -1,0 +1,118 @@
+:root {
+    --primary-color: #3498db;   /* Bright Blue */
+    --secondary-color: #2ecc71; /* Vibrant Green */
+    --accent-color: #e74c3c;    /* Vivid Red */
+    --background-color: #f0f4f8;
+    --gradient-start: #6a11cb;  /* Purple */
+    --gradient-end: #2575fc;    /* Blue */
+}
+
+body {
+    background-color: var(--background-color);
+    color: #2c3e50;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.03);
+}
+.nav-link {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.card {
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card:hover {
+    transform: 
+        translateY(-15px) 
+        rotateX(10deg);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.card-body {
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-body {
+    transform: scale(1.02);
+}
+
+.badge {
+    background-color: var(--secondary-color);
+}
+
+.social-icon {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+section h2 {
+    color: var(--primary-color);
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+}
+
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+    }
+}
